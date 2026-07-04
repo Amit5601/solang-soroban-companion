@@ -29,48 +29,72 @@ Ensure you have Rust and Cargo installed. Clone this repository and build from s
 git clone [https://github.com/Amit5601/solang-soroban-companion.git](https://github.com/Amit5601/solang-soroban-companion.git)
 cd solang-soroban-companion
 cargo build --release
-
+```
 ---
 
-## 🚀 Usage
+# 🚀 Usage
 
-1. Inspect a Compiled Contract
+## 1. Inspect a Compiled Contract
 
-want to see what functions are actually exported inside your compiled .wasm file? Use the inspect command to read the payload.
+Want to see which functions are exported from your compiled `.wasm` contract?
 
 ```bash
 cargo run --release -- inspect --path ./examples/dummy.wasm
+```
 
----
+### Output
 
-Output:
+```text
 ✅ Success: Loaded file successfully!
 📦 File Size: 1513045 bytes
 ✨ Valid WebAssembly magic number detected.
----
-🔍 Scanning contract for callable functions...
-  ⚡ test_function
+
 ---
 
-2. Generate Test Boilerplate
-Stop writing test setups by hand. Point the gen-test command at your compiled contract to automatically generate a contract_test.rs file containing the environment setup and test stubs for every exported function.
+🔍 Scanning contract for callable functions...
+
+  ⚡ test_function
+```
+
+---
+
+## 2. Generate Test Boilerplate
+
+Stop writing test setup code manually.
+
+Generate a `contract_test.rs` file automatically from your compiled contract.
 
 ```bash
 cargo run --release -- gen-test --path ./examples/dummy.wasm
+```
 
-Output:
+### Output
+
+```text
 ✅ Success: Created 'contract_test.rs'!
+```
 
 ---
 
-🗺️ Roadmap (Upcoming Features)
-[ ] State Mocking: Automatically generate mock state transition parameters.
+# 🗺️ Roadmap
 
-[ ] CI/CD Integration: Add a validate command for automated pipeline checks.
+- [ ] State Mocking
+  - Automatically generate mock state transition parameters.
 
-[ ] Crates.io Release: Publish binary for one-line installation (cargo install solang-soroban-companion).
+- [ ] CI/CD Integration
+  - Add a `validate` command for automated pipeline checks.
+
+- [ ] Crates.io Release
+  - Publish the binary for one line installation.
+
+```bash
+cargo install solang-soroban-companion
+```
 
 ---
 
-⚖️ License
-This project is licensed under the Apache License, Version 2.0. See the LICENSE file for details.
+# ⚖️ License
+
+This project is licensed under the **Apache License 2.0**.
+
+See the `LICENSE` file for details.
