@@ -49,10 +49,10 @@ pub fn generate_test_boilerplate(file_path: &Path) -> Result<()> {
         test_file_content.push_str("}\n\n");
     }
 
-    fs::write("generated_test.rs", test_file_content)
+    fs::write("contract_test.rs", test_file_content)
         .context("Failed to save the generated test file to disk")?;
 
-    println!("✅ Success: Created 'generated_test.rs'!");
+    println!("✅ Success: Created 'contract_test.rs'!");
 
     Ok(())
 }
