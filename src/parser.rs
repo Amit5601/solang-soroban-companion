@@ -48,10 +48,10 @@ pub fn extract_functions(bytes: &[u8]) -> Result<Vec<String>> {
     for payload in wasmparser::Parser::new(0).parse_all(bytes) {
         if let Ok(wasmparser::Payload::ExportSection(reader)) = payload {
             for export in reader {
-                if let Ok(e) = export {
-                    if matches!(e.kind, wasmparser::ExternalKind::Func) {
-                        functions.push(e.name.to_string());
-                    }
+                if let Ok(e) = export
+                    && matches!(e.kind, wasmparser::ExternalKind::Func)
+                {
+                    functions.push(e.name.to_string());
                 }
             }
         }
