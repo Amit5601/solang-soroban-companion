@@ -32,7 +32,8 @@ cargo build --release
 
 ---
 
-### 🚀 Usage
+## 🚀 Usage
+
 1. Inspect a Compiled Contract
 
 want to see what functions are actually exported inside your compiled .wasm file? Use the inspect command to read the payload.
